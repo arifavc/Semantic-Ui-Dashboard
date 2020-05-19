@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Academia Towers | Admin Dashboard</title>
+
+    <!-- Semantic UI -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"
+        integrity="sha256-9mbkOfVho3ZPXfM7W8sV2SndrGDuh7wuyLjtsWeTI1Q=" crossorigin="anonymous" />
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
+        integrity="sha256-+N4/V/SbAFiW1MPBCXnfnP9QSN3+Keu+NlB+0ev/YKQ=" crossorigin="anonymous" />
+
+    <!-- Data Tables -->
+    <link src="https://cdn.datatables.net/1.10.21/css/dataTables.semanticui.min.css">
+    </link>
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.6.2/css/buttons.dataTables.min.css">
+
+    <link rel="stylesheet" type="text/css" href="/path/to/jquery.easy-pie-chart.css">
+    <!-- Custom Css -->
+    <link rel="stylesheet" href="css/style.css" />
+
+    <!-- favicon -->
+    <link rel="icon" href="images/favicon.ico">
+</head>
+
+
+<body>
+
+    <!----------------------------------- Navbar -------------------------------------->
+    <nav>
+        <div class="ui inverted secondary sidebar vertical menu sidebar-menu" id="sidebar">
+            <div id="brand">
+                <img id="logo" src="images/logo.png" alt="Logo">
+            </div>
+            <div id="greet">
+                <div id="background"></div>
+                <div id="info">
+                    <p id="name">Hosgeldiniz, Arif Avcı</p>
+                    <p id="mail">ahmetarifavci@gmail.com</p>
+                </div>
+            </div>
+            <a href="index.html" class="item active">
+                <div>
+                    <i class="icon home"></i>
+                    Anasayfa
+                </div>
+            </a>
+            <a href="customers.php" class="item">
+                <div>
+                    <i class="icon users"></i>
+                    Müsteriler
+                </div>
+            </a>
+
+        </div>
+    </nav>
+
+    <!----------------------------------- \Navbar End -------------------------------------->
+
+
+    <!----------------------------------- Header -------------------------------------->
+    <div class="pusher">
+        <header id="header" class="ui top fixed inverted menu">
+
+            <!---------- Breadcrumb ----------------->
+            <div class="left menu">
+                <a style="color: #7f8d94;" href="#" class="sidebar-menu-toggler item" data-target="#sidebar">
+                    <i class="sidebar icon"></i>
+                </a>
+                <div id="breadcrumb" class="ui large breadcrumb">
+                    <a style="color: #af51bf;" class="section">Academia</a>
+                    <i class="right chevron icon divider"></i>
+                    <a style="color: #b5c5cd;" class="section">Dashboard</a>
+                </div>
+            </div>
+
+            <!---------- Header Menu Right ----------------->
+            <div id="right-menu" class="right menu">
+                <div style="background-color: transparent;" class="ui dropdown pointing button">
+                    <a href="#" class="item">
+                        <i id="notification" class="bell icon big"></i>
+                    </a>
+                    <div class="menu">
+                        <div class="item">
+                            <p style="display: inline-block;">
+                                <i style="color:red!important" class="chart bar outline icon"></i>
+                                Elektrik faturası 45.000₺ geldi.
+                            </p>
+                            <span class="time right floated">Bugün, 18:52</span>
+                        </div>
+                        <div class="ui divider"></div>
+                        <div class="item">
+                            <p style="display: inline-block;">
+                                <i style="color:#4bae4f!important" class="chart line icon"></i>
+                                Ali Koç 1500₺ kira ödemesi yaptı
+                            </p>
+                            <span class="time right floated">Bugün, 16:37</span>
+                        </div>
+                        <div class="ui divider"></div>
+                        <div class="item">
+                            <p style="display: inline-block;">
+                                <i style="color:#ff6600!important" class="exclamation triangle
+                icon"></i>
+                                Daire 178 musluk arızası bildirdi
+                            </p>
+                            <span class="time right floated">6 dakika önce</span>
+                        </div>
+                    </div>
+                </div>
+                <div style="padding: 0;" class="ui dropdown item">
+                    <div class="user-active">
+                        <img class="ui avatar image mini" src="images/arifavci.jpg">
+                    </div>
+                    <span style="color: #7f8d94;">Arif Avcı</span>
+                    <i style="margin-top: 6px;" class="angle down icon"></i>
+                    <div class="menu">
+                        <a href="#" class="item">
+                            <i class="info circle icon"></i> Profil</a>
+                        <a href="#" class="item">
+                            <i class="wrench icon"></i>
+                            Ayarlar</a>
+                        <a href="#" class="item">
+                            <i class="sign-out icon"></i>
+                            Çıkış
+                        </a>
+                    </div>
+                </div>
+                <div class="ui dropdown item">
+                </div>
+        </header>
+        <!----------------------------------- \Header End -------------------------------------->
+
+
+
+
+        <!----------------------------------- Main Content -------------------------------------->
+        <main>
+            <div id="main-content-left" class="ui grid stackable padded">
+                <div class="thirteen wide column">
+                    <div class="main-content">
+                        <div style="margin-bottom:3px;" class="ui equal width grid container">
+                            <div class="left floated column">
+
+                                <h2 class="graph-header"> <i class="th icon"></i>Performans Özeti</h2>
+                            </div>
+
+                        </div>
+                        <!-------------- Charts ----------------->
+                        <div class="ui equal width grid container stackable padded chart">
+                            <div class="summary column">
+                                <div class="ui fluid card">
+                                    <div style="background-color: #3e50b4" class="content">
+                                        <i class="right floated expand icon"></i>
+
+                                        <div class="header">Yıllık Kâr Performansı</div>
+                                        <div class="meta">
+                                            Hedeflenen - Mevcut Kâr Oranı
+                                        </div>
+                                    </div>
+                                    <div class="extra content">
+                                        <div id="gauge" style="width:125px;height:115px; margin: auto;"></div>
+                                    </div>
+                                    <div class="extra content">
+                                        <div class="ui vertically divided grid info">
+                                            <div class="info eight wide column">
+                                                <p class="amount">97.600₺</p>
+                                                <p class="amount-info">Hedef</p>
+                                            </div>
+
+                                            <div class="info eight wide column">
+                                                <p class="amount">65.750₺</p>
+                                                <p class="amount-info">Mevcut</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class=" column">
+                                <div class="ui fluid summary card">
+                                    <div style="background-color: #4bae4f" class="content">
+                                        <i class="right floated expand icon"></i>
+
+                                        <div class="header">Rezidans Genel Durumu</div>
+                                        <div class="meta">
+                                            Dairelerin Durumu
+                                        </div>
+                                    </div>
+                                    <div class="extra content">
+                                        <div id="echart" style="margin:auto;width:100%; height:115px;"></div>
+                                    </div>
+                                    <div class="extra content ">
+                                        <div class="ui vertically divided three column grid info">
+                                            <div class="info column">
+                                                <p class="amount">119</p>
+                                                <p class="amount-info">Kirada</p>
+                                            </div>
+                                            <div style="border-right:1px solid #d9e4e9;" class="info column">
+                                                <p class="amount">100</p>
+                                                <p class="amount-info">Satıldı</p>
+                                            </div>
+                                            <div class="info column">
+                                                <p class="amount">54</p>
+                                                <p class="amount-info">Boş</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class=" column">
+                                <div class="ui fluid summary card">
+                                    <div style="background-color: #9b26af;" class="content">
+                                        <i class="right floated expand icon"></i>
+                                        <div class="header">Müsteri Artısı</div>
+                                        <div class="meta">
+                                            Son 12 Ay Müsteri Artısı
+                                        </div>
+                                    </div>
+                                    <div class="extra content">
+                                        <div id="sparkline"></div>
+                                    </div>
+                                    <div class="extra content">
+                                        <div class="ui vertically divided grid info">
+                                            <div class="eight wide column">
+                                                <p class="amount">325</p>
+                                                <p class="amount-info">Kapasite</p>
+                                            </div>
+                                            <div class="info eight wide column">
+                                                <p class="amount">204</p>
+                                                <p class="amount-info">Mevcut</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                            <div class="sixteen wide computer eight wide tablet sixteen wide mobile column">
+                                <div class="ui fluid card">
+                                    <div style="background-color: #2aa8cc;" class="content">
+                                        <i class="right floated expand icon"></i>
+                                        <div class="header">
+                                            <div style="padding-left:0!important;" class="header">Gelir&amp;Gider
+                                                Grafiği</div>
+                                        </div>
+                                        <div class="meta">
+                                            Son 12 Ay
+                                        </div>
+
+                                    </div>
+                                    <div style="padding:0!important;" class="extra content">
+                                        <div id="incomeChart" style="width:100%; height:400px;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!---------- \Charts End ------------------>
+
+
+                        <!------------- Table --------------------->
+
+
+                        <div style="padding-top:40px;margin-bottom:3px;" class="ui equal width grid container">
+                            <div class="left floated column">
+
+                                <h2 class="graph-header"> <i class="hourglass half icon"></i>Yaklasan Ödemeler</h2>
+                            </div>
+
+                        </div>
+                        <div class="ui grid stackable padded">
+                            <div class="column">
+                                <table id="dashboardTable" class="ui celled striped table">
+                                    <thead>
+                                        <tr>
+                                            <th>Ad&amp;Soyad</th>
+                                            <th>Telefon Numarası</th>
+                                            <th>Daire</th>
+                                            <th>Tutar</th>
+                                            <th>Son Gün</th>
+                                            <th>Ödeme Durumu</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Elif Kurt</td>
+                                            <td>+90 (541) 758 95 63</td>
+                                            <td>61</td>
+                                            <td>1600₺</td>
+                                            <td>Bugün</td>
+                                            <td>
+                                                <div class="ui red horizontal label status">Ödenmedi</div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Engin Alpman</td>
+                                            <td>+90 (553) 654 12 28</td>
+                                            <td>63</td>
+                                            <td>1450₺</td>
+                                            <td>Bugün</td>
+                                            <td>
+                                                <div class="ui green horizontal label status">Ödendi</div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Berat Toprak</td>
+                                            <td>+90 (533) 265 65 76</td>
+                                            <td>66</td>
+                                            <td>1500₺</td>
+                                            <td>Bugün</td>
+                                            <td>
+                                                <div class="ui green horizontal label status">Ödendi</div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Nisa Derin</td>
+                                            <td>+90 (537) 126 74 13</td>
+                                            <td>22</td>
+                                            <td>1450₺</td>
+                                            <td>Bugün</td>
+                                            <td>
+                                                <div class="ui red horizontal label status">Ödenmedi</div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Mert Toptas</td>
+                                            <td>+90 (541) 754 22 12</td>
+                                            <td>33</td>
+                                            <td>1550₺</td>
+                                            <td>Yarın</td>
+                                            <td>
+                                                <div class="ui red horizontal label status">Ödenmedi</div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Bahar Zurnacı</td>
+                                            <td>+90 (545) 453 76 98</td>
+                                            <td>61</td>
+                                            <td>2150₺</td>
+                                            <td>Yarın</td>
+                                            <td>
+                                                <div class="ui red horizontal label status">Ödenmedi</div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <!--------------- \Table End ------------->
+                    </div>
+                </div>
+
+                <!------------------ Right Aside ------------->
+
+                <aside
+                    style="padding-top: 72px; background-color: #edf0f2; margin-top:0!important; border-left:1px solid #dcdee0;"
+                    class="three wide column main-content-right">
+                    <div class="ui secondary labeled icon pointing menu">
+                        <a style="color: #7f8d94;" class="item">
+                            <i class="shipping fast icon"></i>
+                        </a>
+                        <a style="color: #9b26af;" class="item active">
+                            <i class="users icon"></i>
+
+                        </a>
+                        <a style="color: #7f8d94;" class="item">
+                            <i class="address card outline icon"></i>
+                        </a>
+
+                    </div>
+                    <div style="background-color: transparent;border: none;padding:10px;" id="personals">
+                        <h5>Personeller</h5>
+                        <div class="ui middle aligned selection list">
+                            <div class="item">
+                                <img class="ui avatar image mini" src="images/nesimavci.jpeg">
+                                <div class="content">
+                                    <div style="color: #28323b;" class="header">Nesim Avcı</div>
+                                    <div class="description">
+                                        Yönetici
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item personel">
+                                <img style="object-fit: ;" class="ui avatar image mini" src="images/personel1.jpg">
+                                <div class="content">
+                                    <div style="color: #28323b;" class="header">Coskun Köroğlu</div>
+                                    <div class="description">
+                                        Pazarlama Uzmanı
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item personel">
+                                <img class="ui avatar image mini" src="images/personel3.jpg">
+                                <div class="content">
+                                    <div style="color: #28323b;" class="header">Gamze Mutlu</div>
+                                    <div class="description">
+                                        Rezidans Yöneticisi
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item personel">
+                                <img class="ui avatar image mini" src="images/personel2.jpg">
+                                <div class="content">
+                                    <div style="color: #28323b;" class="header">Yılmaz Kara</div>
+                                    <div class="description">
+                                        Satın Alma Müdürü
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item personel">
+                                <img class="ui avatar image mini" src="images/personel5.jpg">
+                                <div class="content">
+                                    <div style="color: #28323b;" class="header">Yasar Kandemir</div>
+                                    <div class="description">
+                                        Usta
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item personel">
+                                <img class="ui avatar image mini" src="images/personel4.jpg">
+                                <div class="content">
+                                    <div style="color: #28323b;" class="header">Havva Candan</div>
+                                    <div class="description">
+                                        Temizlik Görevlisi
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- Personal Modal -->
+                    <div id="showModal" class="ui small modal">
+                        <i class="close icon"></i>
+                        <div style="padding:0 2px 0 0;" class="header">
+                            <div id="customerSegment" class="ui secondary top attached pointing menu">
+
+                                <a class="active item" data-tab='info'>
+                                    <span>
+                                        Bilgi
+                                    </span>
+                                </a>
+                                <a class="item " data-tab='messages'>
+                                    <span>
+                                        Mesajlar
+                                </a>
+
+                            </div>
+                        </div>
+                        <div class="">
+                            <div data-tab='info' class="ui tab">
+                                <div class="ui segment">
+                                    <div class="ui grid">
+                                        <div style="padding:40px; margin-right: 0!important;"
+                                            class="eight wide computer sixteen wide mobile column ">
+                                            <div class="ui card">
+                                                <div class="image">
+                                                    <img src="images/personel1.jpg">
+                                                </div>
+                                                <div class="extra content">
+                                                    <a>
+                                                        <i class="time icon"></i>
+                                                        Son Görülme: Bugün, 14:46
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="eight wide computer sixteen wide mobile column">
+                                            <div class="ui grid">
+                                                <div style="padding:30px;" class="sixteen wide column personal-info">
+                                                    <h3 class="ui dividing header">
+                                                        <i class="address card outline icon"></i> Personel Bilgileri
+                                                    </h3>
+                                                    <p>Ad & Soyad: <span class="personel name">Coskun Köroğlu</span></p>
+                                                    <p>Pozisyon: <span class="personel name">Pazarlama Uzmanı</span>
+                                                    </p>
+                                                    <p>Telefon Numarası: <span class="personel phone">+90 (543) 776 54
+                                                            83</span>
+                                                    </p>
+                                                    <p>Mail Adresi: <span
+                                                            class="personel amount">coskunkoroglu@gmail.com</span></p>
+                                                    <p>TC Kimlik Numarası: <span class="personel tcno">6587453168</span>
+                                                    </p>
+                                                    <p>İşe Başlama Tarihi: <span
+                                                            class="personel contract">20/10/2015</span> </p>
+                                                    <p>Maaş: <span class="personel apartment">5500₺</span></p>
+                                                    <p>Adres: <span class="personel apartment">Ihlamur Sok.,Konuralp
+                                                            Mah., No:18, Daire:7, Merkez/Düzce</span></p>
+
+
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div data-tab='messages' class="ui tab">
+                                <div style="max-height: 410px;padding:10px 60px;" class="ui scrolling content segment">
+                                    <div class="ui comments">
+                                        <div class="comment">
+                                            <a class="avatar">
+                                                <img src="images/personel1.jpg">
+                                            </a>
+                                            <div class="content">
+                                                <a class="author">Coskun</a>
+                                                <div class="metadata">
+                                                    <span class="date">Bugün 12:42</span>
+                                                </div>
+                                                <div class="text">
+                                                    Arif merhaba, nasılsın?
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="comment ui grid">
+                                            <div style="text-align: right!important;padding-right:0"
+                                                class="content thirteen wide column">
+
+                                                <div class="metadata">
+                                                    <span style="margin-right: 5px" class="date">Bugün, 12:48</span>
+                                                </div>
+                                                <a class="author">Arif Avcı</a>
+                                                <div class="text">
+                                                    <p style="display:inline"> İyiyim Coşkun, sen nasılsın?</p>
+
+                                                </div>
+                                            </div>
+                                            <div class="three wide column">
+                                                <a class="avatar">
+                                                    <img style="display: inline" src="images/arifavci.jpg">
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="comment">
+                                            <a class="avatar">
+                                                <img src="images/personel1.jpg">
+                                            </a>
+                                            <div class="content">
+                                                <a class="author">Coskun</a>
+                                                <div class="metadata">
+                                                    <span class="date">Bugün 12:54</span>
+                                                </div>
+                                                <div class="text">
+                                                    İyiyim, az sonra evrakları yolluyorum.
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="comment ui grid">
+                                            <div style="text-align: right!important;padding-right:0"
+                                                class="content thirteen wide column">
+
+                                                <div class="metadata">
+                                                    <span style="margin-right: 5px" class="date">Bugün, 13:05</span>
+                                                </div>
+                                                <a class="author">Arif Avcı</a>
+                                                <div class="text">
+                                                    <p style="display:inline"> Tamam, görüşürüz</p>
+
+                                                </div>
+                                            </div>
+                                            <div class="three wide column">
+                                                <a class="avatar">
+                                                    <img style="display: inline" src="images/arifavci.jpg">
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        <form class="ui reply form">
+                                            <div class="field">
+                                                <div style="position: absolute; bottom: -67px!important"
+                                                    class="ui fluid action input">
+                                                    <input type="text" placeholder="Mesaj gönderin...">
+                                                    <button class="ui positive basic button">
+                                                        Gönder
+                                                        <i style="padding-left: 10px" class="comment outline icon"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="actions">
+                            <div class="ui secondary black deny button">
+                                Kapat
+                            </div>
+
+                        </div>
+                    </div>
+
+
+
+
+
+                    <!-- Activities -->
+
+                    <div id="activities" class="activities ui small feed">
+
+                        <h4 class="ui header">Son Etkinlikler</h4>
+
+                        <div class="event">
+                            <div class="content">
+                                <div class="time">4 dakika önce</div>
+                                <div class="summary">
+                                    <a>Yasar Kandemir</a>, <a>Daire 120</a>'nin musluğunu tamir etti
+                                </div>
+                            </div>
+                        </div>
+                        <div class="event">
+                            <div class="content">
+                                <div class="time">26 dakika önce</div>
+                                <div class="summary">
+                                    <a>Gamze Mutlu</a>, <a>Yasin Arslan</a> ile sözlesme imzaladı
+                                </div>
+                            </div>
+                        </div>
+                        <div class="event">
+                            <div class="content">
+                                <div class="time">47 dakika önce</div>
+                                <div class="summary">
+                                    <a>Coskun Köroğlu</a>, <a>Daire 76</a>'yı <a>Hakan Sonmez</a>'e sattı
+                                </div>
+                            </div>
+                        </div>
+                        <div class="event">
+                            <div class="content">
+                                <div class="time">3 saat önce</div>
+                                <div class="summary">
+                                    <a>Yılmaz Kara</a>, <a>Makro Mobilya</a> adlı tedarikçiden 36 adet yemek masası
+                                    temin etti.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+
+                <!----------------- \Right Aside End --------------------->
+            </div>
+        </main>
+
+
+        <!----------------------- Footer  ----------------------------->
+
+        <!----------------------- Footer End  ----------------------------->
+
+    </div>
+    </div>
+
+
+
+    <!-- Jquery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+    <!-- Semantic UI -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"
+        integrity="sha256-t8GepnyPmw9t+foMh3mKNvcorqNHamSKtKRxxpUEgFI=" crossorigin="anonymous"></script>
+
+    <!-- Preload -->
+    <script src="https://unpkg.com/preload-it@latest/dist/preload-it.js"></script>
+
+    <!-- Data Tables -->
+    <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.21/js/dataTables.semanticui.min.js
+  "></script>
+    <script src="https://cdn.datatables.net/buttons/1.6.1/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.semanticui.min.js
+  "></script>
+    <script src="https://cdn.datatables.net/buttons/1.6.2/js/buttons.html5.min.js
+  "></script>
+    <script src="https://cdn.datatables.net/buttons/1.6.2/js/buttons.print.min.js
+  "></script>
+    <script src="https://cdn.datatables.net/select/1.3.1/js/dataTables.select.min.js"></script>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js
+  "></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js
+  "></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js
+  "></script>
+
+    <!-- Sparkline  -->
+    <script src="./js/vendors/jquery.sparkline.min.js"></script>
+
+    <!-- E Charts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/4.7.0/echarts.min.js"></script>
+
+    <!-- Easy Pie Chart  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/easy-pie-chart/2.1.6/jquery.easypiechart.min.js"></script>
+
+    <!-- Count Animate -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
+    <script src="./js/vendors/counterup.min.js"></script>
+
+    <!-- Custom Javascript -->
+    <script src="./js/main.js"></script>
+</body>
+
+</html>
