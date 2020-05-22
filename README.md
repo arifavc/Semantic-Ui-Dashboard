@@ -1,4 +1,4 @@
-# Semantic-Ui-Dashboard
+# Semantic Ui Admin Dashboard
 Semantic ui based admin dashboard 
  
   ## Preview
